@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
+    @old_pictures = Picture.where("created_at < ?", 3.months.ago)
   end
 
   def show
