@@ -6,7 +6,13 @@
 <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
 
+<p>Number of pictures: <%= @pictures.count %></p>
+
+#------------------------------------------------------------
+
 <% @old_pictures.each do |picture| %>
 <p><%= picture.title %>, <%= picture.artist %></p>
 <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
+
+<p>Number of pictures: <%= @old_pictures.count %></p>
