@@ -1,7 +1,8 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
-    @old_pictures = Picture.where("created_at < ?", 3.months.ago)
+    @old_pictures = Picture.three_months_ago
+    @pictures_by_year = Picture.pictures_created_in_year(2017)
   end
 
   def show

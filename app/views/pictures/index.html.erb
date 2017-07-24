@@ -6,7 +6,7 @@
 <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
 
-<p>Number of pictures: <%= @pictures.count %></p>
+<p>Number of pictures total: <%= @pictures.count %></p>
 
 #------------------------------------------------------------
 
@@ -15,4 +15,13 @@
 <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
 
-<p>Number of pictures: <%= @old_pictures.count %></p>
+<p>Number of pictures older than 3 months: <%= @old_pictures.count %></p>
+
+#------------------------------------------------------------
+
+<% @pictures_by_year.each do |picture| %>
+<p><%= picture.title %>, <%= picture.artist %></p>
+<img src="<%= picture.url %>" alt="<%= picture.title %>">
+<% end %>
+
+<p>Number of pictures by year: <%= @pictures_by_year.count %></p>
