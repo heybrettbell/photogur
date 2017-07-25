@@ -1,3 +1,14 @@
+<% if @picture.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@picture.errors.count, "error") %> on your form:</h2>
+
+   <ul>
+    <% @picture.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <h1>Add a picture</h1>
 <%= link_to("Back to Pictures", "/pictures") %>
 <%= form_for(@picture) do |f| %>
