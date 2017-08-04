@@ -14,11 +14,11 @@ class PicturesController < ApplicationController
   end
 
   def create
-   @picture = Picture.new
-
-   @picture.title = params[:picture][:title]
-   @picture.artist = params[:picture][:artist]
-   @picture.url = params[:picture][:url]
+   @picture = Picture.new(picture_params)
+   
+  #  @picture.title = params[:picture][:title]
+  #  @picture.artist = params[:picture][:artist]
+  #  @picture.url = params[:picture][:url]
 
    if @picture.save
      redirect_to "/pictures"
@@ -50,6 +50,10 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to "/pictures"
+  end
+
+  def picture_params
+   params.require(:picture).permit(:title, :artist, :url)
   end
 
 
